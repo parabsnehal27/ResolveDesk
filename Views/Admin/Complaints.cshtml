@@ -1,0 +1,158 @@
+﻿@model List<ResolveDesk.Models.Complaint>
+
+<style>
+
+    .page-title {
+        font-size: 35px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    /* CARD */
+
+    .table-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    /* STATUS */
+
+    .status {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .pending {
+        background: #FEF3C7;
+        color: #92400E;
+    }
+
+    .resolved {
+        background: #DCFCE7;
+        color: #166534;
+    }
+
+    .rejected {
+        background: #FEE2E2;
+        color: #991B1B;
+    }
+
+    /* BUTTONS */
+
+    .btn-resolve {
+        background: #22C55E;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+
+    .btn-reject {
+        background: #EF4444;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+
+    .btn-delete {
+        background: #374151;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+
+</style>
+
+
+
+<h2 class="page-title">Manage Complaints</h2>
+
+
+<div class="table-card">
+
+    <table class="table table-hover">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Title</th>
+
+                <th>Category</th>
+
+                <th>Status</th>
+
+                <th>Date</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            @foreach (var complaint in Model)
+            {
+
+                <tr>
+
+                    <td>@complaint.Id</td>
+
+                    <td>@complaint.Title</td>
+
+                    <td>@complaint.Category</td>
+
+                    <td>
+
+                        @if (complaint.Status == "Pending")
+                        {
+                            <span class="status pending">Pending</span>
+                        }
+
+                        @if (complaint.Status == "Resolved")
+                        {
+                            <span class="status resolved">Resolved</span>
+                        }
+
+                        @if (complaint.Status == "Rejected")
+                        {
+                            <span class="status rejected">Rejected</span>
+                        }
+
+                    </td>
+
+                    <td>@complaint.CreatedAt.ToString("dd MMM yyyy")</td>
+
+                    <td>
+
+                        <a href="/Admin/UpdateStatus/@complaint.Id?status=Resolved"
+                           class="btn btn-resolve">
+                            Resolve
+                        </a>
+
+                        <a href="/Admin/UpdateStatus/@complaint.Id?status=Rejected"
+                           class="btn btn-reject">
+                            Reject
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

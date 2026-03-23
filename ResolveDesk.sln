@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResolveDesk", "ResolveDesk.csproj", "{7EFA3490-8E7D-40CA-A676-F63B5F0A4C51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EFA3490-8E7D-40CA-A676-F63B5F0A4C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFA3490-8E7D-40CA-A676-F63B5F0A4C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFA3490-8E7D-40CA-A676-F63B5F0A4C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFA3490-8E7D-40CA-A676-F63B5F0A4C51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A8F1DF7-D0FA-47E1-BC55-3D1951705A47}
+	EndGlobalSection
+EndGlobal

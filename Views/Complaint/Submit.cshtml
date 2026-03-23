@@ -1,0 +1,156 @@
+﻿@model ResolveDesk.Models.Complaint
+@{
+    var categories = ViewBag.Categories as List<ResolveDesk.Models.Categories>;
+}
+
+<style>
+
+    /* BACKGROUND */
+
+    .form-bg {
+        background-image: url('/images/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: calc(100vh - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+
+    /* FORM CARD */
+
+    .form-card {
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(12px);
+        padding: 40px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 600px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    /* TITLE */
+
+    .form-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #1F2937;
+    }
+
+    /* INPUT */
+
+    .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    /* TEXTAREA */
+
+    textarea {
+        resize: none;
+    }
+
+    /* FILE UPLOAD */
+
+    .file-upload {
+        border: 2px dashed #F97316;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        color: #6B7280;
+        margin-bottom: 20px;
+    }
+
+    /* BUTTON */
+
+    .submit-btn {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        background: linear-gradient(135deg,#FDBA74,#F97316,#EA580C);
+        transition: 0.3s;
+    }
+
+        .submit-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+</style>
+
+
+<div class="form-bg">
+
+    <div class="form-card">
+
+        <h2 class="form-title">Submit Complaint</h2>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <!-- TITLE -->
+
+            <div class="mb-3">
+                <label class="form-label">Complaint Title</label>
+                <input type="text" name="Title" class="form-control" required>
+            </div>
+
+
+            <!-- CATEGORY -->
+
+            <div class="mb-3">
+                <label>Category</label>
+
+                <select name="Category" class="form-control" required>
+
+                    @foreach (var cat in categories)
+                    {
+                        <option value="@cat.CategoryName">@cat.CategoryName</option>
+                    }
+
+                </select>
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="mb-3">
+
+                <label class="form-label">Description</label>
+
+<textarea name="Description" rows="4" class="form-control" required></textarea>
+
+            </div>
+
+
+            <!-- FILE UPLOAD -->
+
+            <div class="file-upload">
+
+                <label>Upload Image / PDF</label>
+
+                <input type="file" name="files" multiple class="form-control mt-2">
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button type="submit" class="submit-btn">
+
+                Submit Complaint
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
